@@ -39,7 +39,21 @@ $(function() {
         slidesToShow: 3,
         slidesToScroll: 1,
         prevArrow: $('.prev'),
-        nextArrow: $('.next')
+        nextArrow: $('.next'),
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
     });
 
     /* pagescroll2id */
@@ -86,7 +100,7 @@ $(function() {
 
     /* open hidden form */
     $('.next-open').click(function(e){
-        e.preventDefault()
+        e.preventDefault();
        $('.next-hidden').show();
         $('.overlay').animate({
             opacity: 1
@@ -99,6 +113,20 @@ $(function() {
         }, 800, function() {
             // Animation complete.
         });
+    });
+
+    /* Tabs WORK */
+    $('#work-b').click(function(){
+        $('.work-list p').removeClass('active');
+        $(this).addClass('active');
+        $('.work-wrap').slideUp('slow');
+        $('.work-bathroom').slideDown('slow');
+    });
+    $('#work-k').click(function(){
+        $('.work-list p').removeClass('active');
+        $(this).addClass('active');
+        $('.work-wrap').slideUp('slow');
+        $('.work-kitchen').slideDown('slow');
     });
 
     /* open hidden form */
@@ -122,6 +150,33 @@ $(function() {
     $('.close').click(function(){
         $('.hid').hide();
     });
+
+    /* nav menu */
+    $('.nav-mobile').click(function(){
+        $(this).hide();
+        $('.main-nav').addClass('active');
+        $('.close-mobile').show();
+        $('.logo').hide();
+    });
+    $('nav a, .close-mobile').click(function(){
+        $('.close-mobile').hide();
+        $('.main-nav').removeClass('active');
+        $('.nav-mobile').show();
+        $('.logo').show();
+    });
+
+
+    /* scroll to...  left-right  gallery*/
+    $(".work-start").click(function () {
+        var leftPos = $('.work').scrollLeft();
+        $(".work").animate({scrollLeft: leftPos - 1000}, 1000);
+    });
+
+    $(".work-end").click(function () {
+        var leftPos = $('.work').scrollLeft();
+        $(".work").animate({scrollLeft: leftPos + 1000}, 1000);
+    });
+
 
 	/* MAP */
     jQuery(document).ready(function($){
@@ -410,7 +465,7 @@ $(function() {
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
             styles: style
-        }
+        };
         //Инициализация карты
         var map = new google.maps.Map(document.getElementById('google-container'), map_options);
         //Добавляем свой маркер местонахождения на карту (свою иконку)
@@ -423,4 +478,39 @@ $(function() {
     });
 
 
+});
+
+/* POPUP Gallery */
+$(document).ready(function() {
+    $('.work-bathroom').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('.work-kitchen').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+        }
+    });
 });
