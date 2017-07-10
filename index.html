@@ -103,7 +103,7 @@
                         </select>
                     </label>
                     <!-- Bnt -next -->
-                    <a href="#">NEXT</a>
+                    <a class="next-open" href="">NEXT</a>
                 </div>
             </form>
 
@@ -269,7 +269,7 @@
                             </select>
                         </label>
                         <!-- Bnt -next -->
-                        <a href="#">NEXT</a>
+                        <a class="next-open" href="">NEXT</a>
                     </div>
                 </form>
             </div>
@@ -521,7 +521,7 @@
                             </select>
                         </label>
                         <!-- Bnt -next -->
-                        <a href="#">NEXT</a>
+                        <a class="next-open" href="">NEXT</a>
                     </div>
                 </form>
             </div>
@@ -552,6 +552,62 @@
         </div>
     </div>
 </footer>
+
+
+<!-- Hidden NEXT Form -->
+<div class="next-hidden hid">
+    <div class="popup">
+        <div class="close-wrap">
+            <div class="close"></div>
+        </div>
+        <form class="form-consult">
+            <div class="next-form">
+                <h3>Submit your application</h3>
+
+                <input type="text" name="name" placeholder="Your name" required>
+                <input type="text" name="zip" placeholder="ZIP Code" required>
+                <input type="text" name="text" placeholder="Type your message">
+
+                <input type="submit" value="Submit your application">
+
+                <p>We don't share your information.</p>
+            </div>
+        </form>
+    </div>
+
+    <div class="overlay"></div>
+</div>
+
+
+<!-- Hidden FREE QUOTE Form -->
+<div class="quote-hidden hid">
+    <div class="popup">
+        <div class="close-wrap">
+            <div class="close"></div>
+        </div>
+        <form class="form-consult">
+            <div class="next-form">
+                <h3>Submit your application</h3>
+
+                <input type="text" placeholder="Phone number" name="phone" required>
+                <input type="email" placeholder="Email" name="email" required>
+                <select name="size">
+                    <option value="Bathroom">Bathroom</option>
+                    <option value="Kitchen">Kitchen</option>
+                </select>
+                <input type="text" name="name" placeholder="Your name" required>
+                <input type="text" name="zip" placeholder="ZIP Code" required>
+                <input type="text" name="text" placeholder="Type your message">
+
+                <input type="submit" value="Submit your application">
+
+                <p>We don't share your information.</p>
+            </div>
+        </form>
+    </div>
+
+    <div class="overlay"></div>
+</div>
 
 <script src="libs/jquery/jquery-1.11.2.min.js"></script>
 <script src="libs/waypoints/waypoints.min.js"></script>

@@ -84,8 +84,46 @@ $(function() {
         });
     });
 
-	/* MAP */
+    /* open hidden form */
+    $('.next-open').click(function(e){
+        e.preventDefault()
+       $('.next-hidden').show();
+        $('.overlay').animate({
+            opacity: 1
+        }, 0, function() {
+            // Animation complete.
+        });
+        $('.next-hidden .popup').animate({
+            opacity: 1,
+            top: '20%'
+        }, 800, function() {
+            // Animation complete.
+        });
+    });
 
+    /* open hidden form */
+    $('.submit, .get-free a').click(function(e){
+        e.preventDefault();
+        $('.quote-hidden').show();
+        $('.overlay').animate({
+            opacity: 1
+        }, 0, function() {
+            // Animation complete.
+        });
+        $('.quote-hidden .popup').animate({
+            opacity: 1,
+            top: '10%'
+        }, 800, function() {
+            // Animation complete.
+        });
+    });
+
+    /* close */
+    $('.close').click(function(){
+        $('.hid').hide();
+    });
+
+	/* MAP */
     jQuery(document).ready(function($){
         //Местоположение: долгота, широта и коэффициент увеличения
         var latitude = 37.3522504,
