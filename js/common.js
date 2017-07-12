@@ -2,21 +2,27 @@ $(function() {
 
 	//E-mail Ajax Send
 	//Documentation & Example: https://github.com/agragregra/uniMail
-	$("form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-			alert("Thank you!");
-			setTimeout(function() {
-				// Done Functions
-				th.trigger("reset");
-			}, 1000);
-		});
-		return false;
-	});
+    $("form").submit(function() { //Change
+        var th = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/mail.php", //Change
+            data: th.serialize()
+        }).done(function() {
+            $('.hid').hide();
+            $('.thanks').show();
+            $('.thanks .popup').animate({
+                top: '30%',
+                opacity: 1
+            }, 800 );
+            th.trigger("reset");
+            $('.popup-sms').slideUp( 100 ).delay( 800 ).fadeIn( 400 );
+        }).success (function(){
+            $(dataLayer.push({'event': 'levelup_nadia'}));
+        });
+
+        return false;
+    });
 
 	//Chrome Smooth Scroll
 	try {
@@ -55,6 +61,37 @@ $(function() {
             }
         ]
     });
+
+
+    //Error
+    $('.form-part-1 input').click(function () {
+        $(this).val('');
+    });
+
+    $(".next-open").click(function(e){
+        e.preventDefault();
+        if($(".form-part-1 input[type='text']").val()=="" || $(".form-part-1 input[type='text']").val()=="Fill this field") {
+            $(".form-part-1 input[type='text']").val('Fill this field').css('border-bottom', '2px solid #ff0000');
+        }
+        else if($(".form-part-1 input[type='email']").val()=="") {
+            $(".form-part-1 input[type='email']").val('Fill this field').css('border-bottom', '2px solid #ff0000');
+        } else {
+            $('.next-hidden').show();
+            $('.overlay').animate({
+                opacity: 1
+            }, 0, function() {
+                // Animation complete.
+            });
+            $('.next-hidden .popup').animate({
+                opacity: 1,
+                top: '20%'
+            }, 800, function() {
+                // Animation complete.
+            });
+        }
+    });
+
+
 
     /* pagescroll2id */
     $("nav a").mPageScroll2id({
@@ -99,6 +136,7 @@ $(function() {
     });
 
     /* open hidden form */
+    /*
     $('.next-open').click(function(e){
         e.preventDefault();
        $('.next-hidden').show();
@@ -114,6 +152,8 @@ $(function() {
             // Animation complete.
         });
     });
+    */
+
 
     /* Tabs WORK */
     $('#work-b').click(function(){

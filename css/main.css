@@ -2,22 +2,35 @@
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	color: #0d0d2a;
+	opacity: 1; transition: opacity 0.3s ease;
 }
 *:-moz-placeholder {
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	color: #0d0d2a;
+	opacity: 1; transition: opacity 0.3s ease;
 }
 *::-moz-placeholder {
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	color: #0d0d2a;
+	opacity: 1; transition: opacity 0.3s ease;
 }
 *:-ms-input-placeholder {
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	color: #0d0d2a;
+	opacity: 1; transition: opacity 0.3s ease;
 }
+input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+textarea:-moz-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+textarea::-webkit-input-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+textarea:focus::-moz-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+textarea:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+
 select{
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
@@ -33,11 +46,8 @@ a{
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid {
-	
-}
-body input:required:valid,
-body textarea:required:valid {
-	
+	border-bottom: 2px solid #0c1427;
+
 }
 
 body {
@@ -578,6 +588,7 @@ li.next:hover{
 	cursor: pointer;
 	float: right;
 }
+.thanks,
 .quote-hidden,
 .next-hidden{
 	display: none;
@@ -736,4 +747,37 @@ img{
 .close-mobile{
 	display: none;
 	cursor: pointer;
+}
+.thanks-txt{
+	text-align: center;
+}
+.thanks-txt h3{
+	font-size: 47px;
+	font-weight: bold;
+	line-height: 0.64;
+	text-align: center;
+	color: #0d0d2a;
+}
+.thanks-txt p{
+	font-size: 20px;
+	text-align: center;
+	color: #0d0d2a;
+}
+.thanks-txt img{
+	margin: 30px auto;
+}
+.thanks .popup {
+	position: fixed;
+	width: 450px;
+	background: #fff;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	top: 50%;
+	text-align: center;
+	padding: 53px 34px;
+	padding-bottom: 75px;
+	z-index: 12;
+	box-sizing: border-box;
+	opacity: 0;
 }
