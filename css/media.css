@@ -244,7 +244,12 @@
 	#discount-1, #contacts {
 		margin-top: 100px;
 	}
-
+	.consult-2 {
+		flex-direction: column;
+	}
+	.consult-2 .consult-form {
+		margin-top: 30px;
+	}
 
 }
 

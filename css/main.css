@@ -282,7 +282,7 @@ footer{
 }
 #discount-1,
 #discount-2{
-	padding: 120px 0 138px;
+	padding: 60px 0 90px;
 }
 #discount-1{
 	background: url("../img/d1.jpg");
@@ -305,7 +305,7 @@ footer{
 	display: block;
 }
 .discount .consult-form{
-	margin-top: 60px;
+	margin-top: 30px;
 }
 .title-text{
 	padding-top: 27px;
@@ -376,7 +376,7 @@ span.number{
 	background: #fff;
 }
 .dop-type-text{
-	padding: 38px;
+	padding: 23px;
 	background: #fff;
 }
 .dop-text-img img{
@@ -594,7 +594,6 @@ li.next:hover{
 	display: none;
 }
 .popup{
-	position: fixed;
 	width: 400px;
 	background: #fff;
 	margin: 0 auto;
@@ -606,8 +605,9 @@ li.next:hover{
 	z-index: 12;
 	box-sizing: border-box;
 	opacity: 0;
+	margin: 30px auto;
 }
-.overlay {
+.hid {
 	background-color: rgba(12, 20, 39, 0.8);
 	position: fixed;
 	width: 100%;
@@ -616,7 +616,6 @@ li.next:hover{
 	right: 0px;
 	top: 0px;
 	z-index: 11;
-	opacity: 0;
 }
 .popup h3{
 	font-size: 19px;
@@ -703,16 +702,44 @@ img{
 	top:0;
 	left: 0;
 	bottom: 0;
-	background-color: rgba(12, 20, 39, 0);
+	background-color: rgba(12, 20, 39, 0.2);
 	position: absolute;
 	margin: 8px 0;
-	margin-bottom: 25px;
+	margin-bottom: 13px;
 	cursor: pointer;
+	transition: 0.3s;
+}
+.work-end:after{
+	opacity: 0;
+	content: "";
+	background: url("../img/next-before.svg");
+	width: 10px;
+	height: 13px;
+	position: absolute;
+	top:50%;
+	right: 37px;
+	transition: 0.3s;
+}
+.work-start:after{
+	opacity: 0;
+	content: "";
+	background: url("../img/next-before.svg");
+	transform: rotate(180deg);
+	width: 10px;
+	height: 13px;
+	position: absolute;
+	top:50%;
+	right: 37px;
+	transition: 0.3s;
+}
+.work-end:hover:after,
+.work-start:hover:after{
+	opacity: 1;
 	transition: 0.3s;
 }
 .work-end:hover,
 .work-start:hover{
-	background-color: rgba(12, 20, 39, 0.5);
+	background-color: rgba(12, 20, 39, 0.7);
 	transition: 0.3s;
 }
 .work-end{
@@ -720,7 +747,22 @@ img{
 	left: auto;
 }
 .work::-webkit-scrollbar {
-	width: 1px;
+	display: block;
+	width: 100%;
+	overflow: auto;
+	height: 5px;
+}
+.work::-webkit-scrollbar-thumb {
+	background-color: #f0585b;
+	border-radius: 10px;
+	cursor: pointer;
+	opacity: 0.7;
+}
+.work::-webkit-scrollbar-thumb:hover {
+	opacity: 1;
+}
+.work::-webkit-scrollbar-track-piece{
+	background-color: rgba(12, 20, 39, 0.3);
 }
 .work{
 	overflow-x: scroll;
@@ -780,4 +822,51 @@ img{
 	z-index: 12;
 	box-sizing: border-box;
 	opacity: 0;
+}
+.visible{
+	opacity: 1;
+}
+.consult-1{
+	display: flex;
+	flex-direction: column;
+	padding: 15px 20px;
+}
+.consult-1 select,
+.consult-1 input {
+	border-right: none;
+	border-bottom: 2px solid #dddee4;
+	width: 315px;
+}
+.consult-1 a {
+	display: block;
+	width: 170px;
+	height: 60px;
+	padding-right: 30px;
+	margin: 10px auto;
+}
+.consult-2{
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	justify-content: space-around;
+	max-width: 1000px;
+}
+.consult-2 .consult-form {
+	margin-top: 0px;
+}
+#discount-2 {
+	padding: 60px 0 60px;
+}
+
+.quote-hidden{
+	background-color: rgba(12, 20, 39, 0.8);
+	position: fixed;
+	z-index: 11;
+	opacity: 0;
+	overflow: scroll;
+	height: 100vh;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	right: 0px;
 }

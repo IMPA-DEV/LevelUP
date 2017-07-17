@@ -170,14 +170,14 @@ $(function() {
     });
 
     /* open hidden form */
-    $('.submit, .get-free a').click(function(e){
+    $('.get-free a').click(function(e){
         e.preventDefault();
-        $('.quote-hidden').show();
-        $('.overlay').animate({
-            opacity: 1
-        }, 0, function() {
-            // Animation complete.
-        });
+        $('.quote-hidden').show().css('opacity','1');
+        // $('.overlay').animate({
+        //     opacity: 1
+        // }, 0, function() {
+        //     // Animation complete.
+        // });
         $('.quote-hidden .popup').animate({
             opacity: 1,
             top: '10%'
@@ -199,10 +199,12 @@ $(function() {
         $('.logo').hide();
     });
     $('nav a, .close-mobile').click(function(){
-        $('.close-mobile').hide();
-        $('.main-nav').removeClass('active');
-        $('.nav-mobile').show();
-        $('.logo').show();
+        if (innerWidth < 992){
+            $('.close-mobile').hide();
+            $('.main-nav').removeClass('active');
+            $('.nav-mobile').show();
+            $('.logo').show();
+        }
     });
 
 
